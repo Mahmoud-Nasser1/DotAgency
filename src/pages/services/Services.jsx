@@ -56,13 +56,13 @@ const services = [
 ];
 
 const Services = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-gradient-teal py-8">
     <PageHeader
       title="Our Services"
       subtitle="Comprehensive digital solutions for your business"
     />
 
-    <section className="py-16">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((s, i) => (
           <motion.div
@@ -71,7 +71,7 @@ const Services = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="group p-6 rounded-xl bg-card border border-border hover:gradient-teal hover:border-transparent transition-all duration-300 cursor-default"
+            className="group p-6 rounded-xl bg-card border border-border hover:bg-gradient-teal hover:border-transparent transition-all duration-1000 cursor-default"
           >
             <div className="text-primary group-hover:text-primary-foreground transition-colors mb-4">
               {s.icon}

@@ -1,105 +1,146 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { Home, Target, ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Home, ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
-  const location = useLocation();
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotateX = useTransform(mouseY, [-200, 200], [8, -8]);
-  const rotateY = useTransform(mouseX, [-200, 200], [-8, 8]);
-
   return (
-    <div
-      className="relative min-h-screen w-full overflow-hidden bg-[#0a0f1e] flex flex-col items-center justify-center text-white"
-      onMouseMove={(e) => {
-        mouseX.set(e.clientX - window.innerWidth / 2);
-        mouseY.set(e.clientY - window.innerHeight / 2);
-      }}
-    >
-      {/* Background floating particles */}
-      {[...Array(50)].map((_, i) => (
-        <motion.span
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Floating dots */}
+      {[...Array(18)].map((_, i) => (
+        <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-cyan-400/20"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            opacity: 0,
+          className="absolute rounded-full bg-primary/10"
+          style={{
+            width: Math.random() * 18 + 6,
+            height: Math.random() * 18 + 6,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: ["0%", "-120%"],
-            opacity: [0, 0.6, 0],
+            y: [0, -25, 0],
+            x: [0, Math.random() * 20 - 10, 0],
+            opacity: [0.1, 0.35, 0.1],
           }}
           transition={{
-            duration: Math.random() * 15 + 10,
+            duration: Math.random() * 4 + 3,
             repeat: Infinity,
-            ease: "linear",
+            delay: Math.random() * 2,
           }}
         />
       ))}
 
-      {/* Central animated target + 404 */}
-      <motion.div
-        style={{ rotateX, rotateY }}
-        className="flex flex-col items-center py-48 justify-center z-7 px-4"
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="w-20 h-20 rounded-full border-2 border-cyan-400/50 flex items-center justify-center mb-6"
-        >
-          <Target className="text-cyan-400" />
-        </motion.div>
-
-        <motion.h1
-          animate={{ textShadow: ["0 0 0px #22d3ee", "0 0 25px #22d3ee"] }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-          className="text-[8rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400 select-none"
-        >
-          404
-        </motion.h1>
-
-        <p className="mt-4 text-lg text-cyan-300 font-mono text-center">
-          Campaign path not found:
-          <span className="block text-cyan-400">{location.pathname}</span>
-        </p>
-
-        <h2 className="mt-6 text-3xl font-bold text-white/90 text-center">
-          Your AI Funnel Missed the Target 🎯
-        </h2>
-
-        <p className="mt-3 text-white/60 max-w-xl text-center">
-          This route doesn’t exist anymore. Let’s reroute your campaign traffic and optimize conversions.
-        </p>
-
-        {/* Buttons */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan-500 text-black font-semibold hover:shadow-xl hover:shadow-cyan-500/30 transition-all"
+      <div className="flex items-center justify-center min-h-screen relative z-7 pt-16">
+        <div className="text-center px-4">
+          {/* 404 */}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 90, damping: 12 }}
+            className="mb-10"
           >
-            <Home size={16} />
-            Back to Homepage
-          </Link>
+            <div className="flex items-center justify-center gap-3">
+              <motion.span
+                animate={{ rotateY: [0, 360] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="text-7xl md:text-[9rem] font-bold text-primary"
+              >
+                4
+              </motion.span>
 
-          <button
-            onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all"
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                <svg
+                  viewBox="0 0 120 120"
+                  className="w-24 h-24 md:w-36 md:h-36"
+                >
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    stroke="hsl(180, 40%, 35%)"
+                    strokeWidth="4"
+                    fill="none"
+                    strokeDasharray="20 10"
+                    opacity="0.8"
+                  />
+                  <circle
+                    cx="60"
+                    cy="15"
+                    r="8"
+                    fill="hsl(180, 40%, 35%)"
+                    opacity="0.9"
+                  />
+                </svg>
+              </motion.div>
+
+              <motion.span
+                animate={{ rotateY: [0, -360] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="text-7xl md:text-[9rem] font-bold text-primary"
+              >
+                4
+              </motion.span>
+            </div>
+          </motion.div>
+
+          {/* Text */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-2xl md:text-3xl font-bold text-foreground mb-3"
           >
-            <ArrowLeft size={16} />
-            Fix the Funnel
-          </button>
+            Oops! Page not found
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-muted-foreground mb-10 max-w-md mx-auto"
+          >
+            Looks like this page took a wrong turn in the digital journey.
+            Let’s get you back on track.
+          </motion.p>
+
+          {/* Actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link
+              to="/"
+              className="
+                inline-flex items-center gap-2
+                bg-primary text-primary-foreground
+                px-8 py-3 rounded-full font-semibold
+                hover:shadow-xl hover:scale-105
+                transition-all duration-300
+              "
+            >
+              <Home size={18} /> Back to Home
+            </Link>
+
+            <button
+              onClick={() => window.history.back()}
+              className="
+                inline-flex items-center gap-2
+                border border-border
+                text-foreground
+                px-8 py-3 rounded-full font-semibold
+                hover:bg-muted
+                transition-all duration-300
+              "
+            >
+              <ArrowLeft size={18} /> Go Back
+            </button>
+          </motion.div>
         </div>
-      </motion.div>
-
-      {/* Optional: AI glitch / marketing vibes */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-teal-500/5 to-cyan-500/10 blur-2xl animate-pulse"
-        animate={{ opacity: [0.1, 0.3, 0.1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
+      </div>
     </div>
   );
 };
