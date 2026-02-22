@@ -33,26 +33,31 @@ export default function Header() {
         <li key={path}>
           <NavLink
             to={path}
+            end={path === "/"}
             className={({ isActive }) =>
-              `flex items-center gap-2 text-xs uppercase tracking-[0.2em]
-               transition-colors duration-300
-               hover:text-white
-               ${isActive ? "text-white" : "text-gray-400"}`
+              `relative flex items-center gap-2 text-sm font-medium tracking-wide uppercase transition-colors duration-300
+   ${
+     isActive
+       ? "text-primary-foreground after:w-full"
+       : "text-primary-foreground/80 hover:text-primary-foreground after:w-0 hover:after:w-full"
+   }
+   after:content-[''] after:absolute after:left-0 after:-bottom-1
+   after:h-[2px] after:bg-primary-foreground
+   after:transition-all after:duration-300`
             }
           >
             <Icon size={16} />
-            {name}
+            <span>{name}</span>
           </NavLink>
         </li>
       ))}
     </ul>
   );
-
   return (
-    <div className="fixed top-0 left-0 right-0 z-10 w-full bg-black text-white">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+    <div className="fixed top-0 left-0 right-0 z-10 w-full bg-primary/95 backdrop-blur-md text-white">
+      <div className="container mx-auto flex items-center justify-between px-6 py-2">
         <Typography as="a" href="#" className="cursor-pointer font-medium">
-          <img src="/IMG2.png" className="h-24 w-44" />
+          <img src="/logo.png" className="h-24 w-44" />
         </Typography>
 
         {/* Nav List Desktop */}
