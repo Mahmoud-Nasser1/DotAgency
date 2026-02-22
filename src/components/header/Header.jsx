@@ -55,7 +55,7 @@ export default function Header() {
   );
   return (
     <div className="fixed top-0 left-0 right-0 z-10 w-full bg-primary/95 backdrop-blur-md text-white">
-      <div className="container mx-auto flex items-center justify-between px-6 py-2">
+      <div className="container mx-auto flex items-center justify-between ">
         <Typography as="a" href="#" className="cursor-pointer font-medium">
           <img src="/logo.png" className="h-24 w-44" />
         </Typography>
