@@ -83,6 +83,15 @@ module.exports = withMT({
         sm: "0.5rem",
       },
 
+      backgroundImage: {
+        "gradient-teal": "linear-gradient(135deg, #005c5c, #007a7a, #33a6a6)",
+
+        "gradient-text-teal": "linear-gradient(135deg, #007a7a, #3ddede)",
+
+        "hero-overlay":
+          "radial-gradient(ellipse at 70% 30%, rgba(61,222,222,0.15), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(0,92,92,0.2), transparent 50%)",
+      },
+
       /* ================= Animations ================= */
       keyframes: {
         "accordion-down": {
