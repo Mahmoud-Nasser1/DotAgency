@@ -1,6 +1,13 @@
+import Hero from "./components/Hero";
+import SecSection from "./components/SecSection";
 
 const Home = () => {
-  return <div className="h-screen">Magmndfljkjkvnedkoslfvn</div>;
+  return (
+    <div>
+      <Hero />
+      <SecSection />
+    </div>
+  );
 };
 
 export default Home;
