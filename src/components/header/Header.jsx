@@ -55,7 +55,7 @@ export default function Header() {
   );
   return (
     <div className="fixed top-0 left-0 right-0 z-10 w-full bg-primary/95 backdrop-blur-md text-white">
-      <div className="container mx-auto flex items-center justify-between ">
+      <div className="container mx-auto flex items-center justify-between px-6">
         <Typography as="a" href="#" className="cursor-pointer font-medium">
           <img src="/logo.png" className="h-24 w-44" />
         </Typography>
@@ -104,7 +104,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu using Collapse */}
-      <Collapse open={openNav} className="lg:hidden bg-black">
+      <Collapse open={openNav} className="lg:hidden bg-primary/95 backdrop-blur-md">
         <div className="container mx-auto py-4 px-8">{navList}</div>
       </Collapse>
     </div>
