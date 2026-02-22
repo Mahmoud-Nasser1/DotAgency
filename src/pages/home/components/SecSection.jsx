@@ -49,7 +49,7 @@ const SecSection = () => {
               icon: <Lightbulb size={24} />,
               title: "Vision",
               text: "Leading companies to exceptional, sustainable growth in a constantly evolving digital landscape.",
-              img: "/vision.png",
+              img: "/vision1.jpg",
             },
             {
               icon: <Target size={24} />,
