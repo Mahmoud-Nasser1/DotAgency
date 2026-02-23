@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import HeroSection from "../../components/heroSection/HeroSection";
 import {
   MessageSquare,
   Eye,
@@ -10,7 +11,6 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-import PageHeader from "./../../components/animation/PageHeader";
 
 const services = [
   {
@@ -56,13 +56,15 @@ const services = [
 ];
 
 const Services = () => (
-  <div className="min-h-screen bg-gradient-teal py-8">
-    <PageHeader
+  <div>
+    {/* Hero Section */}
+    <HeroSection
       title="Our Services"
-      subtitle="Comprehensive digital solutions for your business"
+      subtitle="Comprehensive digital solutions tailored to elevate your brand and drive measurable results."
     />
 
-    <section className="py-16 bg-white">
+    {/* Services Cards */}
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((s, i) => (
           <motion.div
@@ -71,7 +73,7 @@ const Services = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="group p-6 rounded-xl bg-card border border-border hover:bg-gradient-teal hover:border-transparent transition-all duration-1000 cursor-default"
+            className="group p-6 rounded-xl bg-card border border-border hover:bg-gradient-teal hover:border-transparent hover:scale-[1.02] transition-all duration-1000 cursor-default"
           >
             <div className="text-primary group-hover:text-primary-foreground transition-colors mb-4">
               {s.icon}

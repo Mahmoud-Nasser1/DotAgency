@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import NotFound from "./pages/notFound/NotFound";
 import Clients from "./pages/clients/Clients";
 import Services from "./pages/services/Services";
+import ContactUS from './pages/contactUs/ContactUS';
 
 const App = () => {
   return (
@@ -15,10 +16,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/Clients" element={<Clients />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<ContactUS />} />
         {/* <Route path="/work" element={<Works />} />
         
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<ContactUs />} />
+        
         
          */}
         <Route path="*" element={<NotFound />} />
