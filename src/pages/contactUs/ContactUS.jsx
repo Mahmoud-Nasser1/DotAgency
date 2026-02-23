@@ -33,7 +33,7 @@ export default function ContactUS() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl font-bold text-foreground mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-8">
                 Get In Touch
               </h2>
               <form
