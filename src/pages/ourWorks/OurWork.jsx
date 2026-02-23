@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import HeroSection from "../../components/heroSection/HeroSection";
+import WorksVd from "./components/WorksVd";
+import WorksPh from "./components/WorksPh";
 
 const works = [
   {
@@ -40,49 +42,9 @@ const OurWork = () => (
       subtitle="Explore our portfolio of successful campaigns, creative solutions, and digital transformations."
     />
 
-    {/* Cards */}
     <section className="py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {works.map((work, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group overflow-hidden rounded-2xl bg-card border border-border shadow-md hover:shadow-2xl transition-all duration-500"
-            >
-              {/* Media */}
-              <div
-                className={`relative aspect-video bg-gradient-to-br ${work.gradient} flex items-center justify-center`}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-16 h-16 rounded-full bg-primary-foreground/20 backdrop-blur flex items-center justify-center cursor-pointer"
-                >
-                  <Play size={28} className="text-primary-foreground ml-1" />
-                </motion.div>
-
-                <span className="absolute top-4 left-4 text-xs uppercase tracking-wider text-primary-foreground/90 bg-primary-foreground/15 backdrop-blur px-3 py-1 rounded-full">
-                  {work.category}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {work.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {work.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+      <WorksPh />
+      <WorksVd />
     </section>
   </div>
 );
