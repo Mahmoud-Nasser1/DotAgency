@@ -70,15 +70,15 @@ const ThSection = () => {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={i * 0.5}
-              className="group p-6 rounded-2xl glass-card hover:bg-primary-foreground/15 transition-all duration-500 cursor-default"
+              className="group p-3 rounded-2xl glass-card hover:bg-primary-foreground/15 transition-all duration-500 cursor-default"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center text-primary-foreground mb-4 group-hover:bg-primary-foreground/20 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center text-primary-foreground mb-4 group-hover:bg-primary-foreground/20 transition-colors">
                 {s.icon}
               </div>
-              <h4 className="text-primary-foreground font-bold text-sm mb-1.5">
+              <h4 className="text-primary-foreground font-bold text-lg mb-1.5">
                 {s.title}
               </h4>
-              <p className="text-primary-foreground/50 text-xs leading-relaxed">
+              <p className="text-primary-foreground/50 text-sm leading-relaxed">
                 {s.desc}
               </p>
             </motion.div>
