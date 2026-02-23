@@ -55,7 +55,7 @@ const OurWork = () => {
               variants={fadeUp}
             >
               <Link
-                to="/our-work"
+                to="/work"
                 className="group block relative rounded-2xl overflow-hidden aspect-video cursor-pointer"
               >
                 <img
@@ -88,7 +88,7 @@ const OurWork = () => {
           variants={fadeUp}
         >
           <Link
-            to="/our-work"
+            to="/work"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300"
           >
             View All Work <ArrowRight size={18} />
