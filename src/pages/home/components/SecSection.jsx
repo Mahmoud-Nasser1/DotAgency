@@ -55,7 +55,7 @@ const SecSection = () => {
               icon: <Target size={24} />,
               title: "Mission",
               text: "Comprehensive marketing powered by data-driven insights and AI to reach audiences with precision.",
-              img: "/mision.png",
+              img: "/arrow.png",
             },
             {
               icon: <Eye size={24} />,
