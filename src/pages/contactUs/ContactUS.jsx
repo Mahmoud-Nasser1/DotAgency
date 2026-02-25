@@ -9,6 +9,7 @@ import {
   Twitter,
 } from "lucide-react";
 import HeroSection from "../../components/heroSection/HeroSection";
+import { BsWhatsapp } from "react-icons/bs";
 
 export default function ContactUS() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -122,16 +123,17 @@ export default function ContactUS() {
                   <div>
                     <h4 className="font-bold text-foreground">Phone</h4>
                     <p className="text-muted-foreground text-sm">
-                      +20 100 000 0000
+                       01140372054
                     </p>
                   </div>
                 </div>
+
                 <div className="flex items-start gap-4">
                   <Mail className="text-primary mt-1 shrink-0" size={22} />
                   <div>
                     <h4 className="font-bold text-foreground">Email</h4>
                     <p className="text-muted-foreground text-sm">
-                      info@dotagency.com
+                      dotagency69@gmail.com
                     </p>
                   </div>
                 </div>
@@ -139,22 +141,22 @@ export default function ContactUS() {
 
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/183jaBNUCJ/"
                   className="p-3 rounded-full bg-primary text-primary-foreground hover:opacity-80 transition-opacity"
                 >
                   <Facebook size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/dot_gency?igsh=cGt6ZHdtaTU1N2Rk"
                   className="p-3 rounded-full bg-primary text-primary-foreground hover:opacity-80 transition-opacity"
                 >
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/01018565141"
                   className="p-3 rounded-full bg-primary text-primary-foreground hover:opacity-80 transition-opacity"
                 >
-                  <Twitter size={20} />
+                  <BsWhatsapp size={20} />
                 </a>
               </div>
 
