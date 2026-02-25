@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
 import { NavLink } from "react-router-dom";
+
 const LINKS = [
   {
     title: "Company",
@@ -31,7 +32,7 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-primary/95 backdrop-blur-md text-white">
+    <footer className="relative w-full bg-primary/95 backdrop-blur-md text-white mt-auto">
       <div className="mx-auto w-full max-w-7xl px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Logo + Text */}
@@ -40,7 +41,7 @@ export default function Footer() {
               <img src="/logo.png" className="h-28 w-44" alt="Yas Agency" />
             </Typography>
 
-            <p className="mt-3 md:text-lg text-sm text-primary-foreground/70 max-w-xs leading-relaxed ">
+            <p className="mt-3 md:text-lg text-sm text-primary-foreground/70 max-w-xs leading-relaxed">
               DOT Agency specializes in e-marketing and web development, helping
               businesses grow in a digital world.
             </p>
@@ -52,7 +53,7 @@ export default function Footer() {
               <ul key={title}>
                 <Typography
                   variant="small"
-                  className="mb-3 font-medium uppercase text-primary-foreground  md:text-lg text-sm "
+                  className="mb-3 font-medium uppercase text-primary-foreground md:text-lg text-sm"
                 >
                   {title}
                 </Typography>
@@ -61,7 +62,7 @@ export default function Footer() {
                   <li key={name}>
                     <NavLink
                       to={path}
-                      className="block py-1.5 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors  md:text-lg "
+                      className="block py-1.5 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors md:text-lg"
                     >
                       {name}
                     </NavLink>
@@ -72,41 +73,49 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between border-t border-gray-800 pt-6">
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-between border-t border-white/20 pt-6">
           <Typography
             variant="small"
-            className="mb-4 md:mb-0 text-primary-foreground/50  md:text-lg text-sm"
+            className="mb-4 md:mb-0 text-primary-foreground/50 md:text-lg text-sm"
           >
-            &copy; {currentYear}{" "}
-            <a
-              href="https://material-tailwind.com/"
-              className="hover:text-white "
-            ></a>
-            DOT Agency — All Rights Reserved
+            &copy; {currentYear} DOT Agency — All Rights Reserved
           </Typography>
 
           <div className="flex gap-5">
             {/* Facebook */}
             <Typography
               as="a"
-              href="https://www.facebook.com/share/16RtHP6VJz/"
+              href="https://www.facebook.com/share/183jaBNUCJ/"
               target="_blank"
-              className="text-primary-foreground/70   hover:text-[#1877F2] transition-colors"
+              className="text-primary-foreground/70 hover:text-[#1877F2] transition-colors"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
               </svg>
             </Typography>
 
-            {/* LinkedIn */}
+            {/* Instagram */}
             <Typography
               as="a"
-              href="https://www.linkedin.com/company/yas-agency-advertising/"
+              href="https://www.instagram.com/dot_gency?igsh=cGt6ZHdtaTU1N2Rk"
               target="_blank"
-              className="text-primary-foreground/70  hover:text-[#0A66C2] transition-colors"
+              className="text-primary-foreground/70 hover:text-[#E1306C] transition-colors"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.99V9h3.112v1.561h.044c.434-.823 1.494-1.691 3.074-1.691 3.29 0 3.896 2.164 3.896 4.977v6.605zM5.337 7.433a1.805 1.805 0 110-3.61 1.805 1.805 0 010 3.61zM6.956 20.452H3.718V9h3.238v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z" />
+                <path d="M7.75 2C4.678 2 2 4.678 2 7.75v8.5C2 19.322 4.678 22 7.75 22h8.5C19.322 22 22 19.322 22 16.25v-8.5C22 4.678 19.322 2 16.25 2h-8.5zm0 2h8.5C18.216 4 20 5.784 20 7.75v8.5c0 1.966-1.784 3.75-3.75 3.75h-8.5C5.784 20 4 18.216 4 16.25v-8.5C4 5.784 5.784 4 7.75 4zm8.75 1.5a.75.75 0 100 1.5.75.75 0 000-1.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" />
+              </svg>
+            </Typography>
+
+            {/* WhatsApp */}
+            <Typography
+              as="a"
+              href="https://wa.me/01018565141"
+              target="_blank"
+              className="text-primary-foreground/70 hover:text-[#25D366] transition-colors"
+            >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.94 11.94 0 0012.06 0C5.49 0 .2 5.29.2 11.86c0 2.09.55 4.13 1.6 5.93L0 24l6.37-1.67a11.86 11.86 0 005.69 1.45h.01c6.57 0 11.86-5.29 11.86-11.86 0-3.17-1.23-6.14-3.41-8.44zM12.07 21.6h-.01a9.7 9.7 0 01-4.95-1.36l-.35-.21-3.78.99 1.01-3.68-.23-.38a9.7 9.7 0 01-1.49-5.1C2.27 6.32 6.53 2.06 12.06 2.06c2.58 0 5 1.01 6.83 2.84a9.64 9.64 0 012.83 6.96c0 5.53-4.26 9.74-9.65 9.74zm5.32-7.3c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.91 1.15-.17.2-.33.22-.62.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.33.43-.49.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.66-.51h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.04 2.83 1.18 3.03c.15.19 2.03 3.1 4.92 4.35.69.3 1.22.47 1.63.6.69.22 1.31.19 1.8.11.55-.08 1.72-.7 1.97-1.38.24-.68.24-1.27.17-1.38-.07-.12-.26-.19-.55-.34z" />
               </svg>
             </Typography>
           </div>

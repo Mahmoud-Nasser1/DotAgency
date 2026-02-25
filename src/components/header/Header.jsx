@@ -35,15 +35,18 @@ export default function Header() {
             to={path}
             end={path === "/"}
             className={({ isActive }) =>
-              `relative flex items-center gap-2 text-sm font-medium tracking-wide uppercase transition-colors duration-300
-   ${
-     isActive
-       ? "text-primary-foreground after:w-full"
-       : "text-primary-foreground/80 hover:text-primary-foreground after:w-0 hover:after:w-full"
-   }
-   after:content-[''] after:absolute after:left-0 after:-bottom-1
-   after:h-[2px] after:bg-primary-foreground
-   after:transition-all after:duration-300`
+              `relative inline-flex w-fit items-center gap-2 text-sm font-medium tracking-wide uppercase
+             transition-colors duration-300
+             ${
+               isActive
+                 ? "text-primary-foreground" 
+                 : "text-primary-foreground/80" 
+             }
+             hover:text-primary-foreground      /* لون عند hover */
+             after:content-[''] after:absolute after:left-0 after:-bottom-1
+             after:h-[2px] after:bg-primary-foreground
+             after:w-0 hover:after:w-full
+             after:transition-all after:duration-300`
             }
           >
             <Icon size={16} />
@@ -57,7 +60,7 @@ export default function Header() {
     <div className="fixed top-0 left-0 right-0 z-10 w-full bg-primary/95 backdrop-blur-md text-white">
       <div className="container mx-auto flex items-center justify-between px-6">
         <Typography as="a" href="#" className="cursor-pointer font-medium">
-          <img src="/logo.png" className="h-24 w-44" />
+          <img src="/logo.png" className="h-20 w-32" />
         </Typography>
 
         {/* Nav List Desktop */}
@@ -104,7 +107,10 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu using Collapse */}
-      <Collapse open={openNav} className="lg:hidden bg-primary/95 backdrop-blur-md">
+      <Collapse
+        open={openNav}
+        className="lg:hidden bg-primary/95 backdrop-blur-md"
+      >
         <div className="container mx-auto py-4 px-8">{navList}</div>
       </Collapse>
     </div>
