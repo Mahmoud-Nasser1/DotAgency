@@ -79,7 +79,7 @@ const clients = [
 
 const WorksPh = () => (
   <section>
-    <div className="text-center ">
+    <div className="text-center px-6">
       <span className="text-sm font-semibold tracking-widest uppercase text-primary">
         Our Work
       </span>

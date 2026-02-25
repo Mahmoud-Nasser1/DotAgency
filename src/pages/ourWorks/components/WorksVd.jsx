@@ -1,115 +1,122 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Play, X } from "lucide-react";
 
 const videos = [
   {
-    title: "FOGG Perfumes Digital Campaign",
+    title: "Barbi Spa – Luxury Wellness Experience",
+    category: "Spa & Wellness",
+    desc: "Visual campaign highlighting Barbi Spa’s relaxing atmosphere, premium treatments, and luxury self-care experience.",
+    src: "/videos/BarbiSpa1.mp4",
+  },
+  {
+    title: "Barbi Spa – Beauty & Relaxation",
+    category: "Beauty Campaign",
+    desc: "Creative video content showcasing skincare, massage sessions, and the calm lifestyle of Barbi Spa.",
+    src: "/videos/BarbiSpa2.mp4",
+  },
+  {
+    title: "Wadida Restaurant – Signature Dishes",
+    category: "Restaurant Marketing",
+    desc: "High-quality food videography capturing Wadida’s signature meals, flavors, and dining experience.",
+    src: "/videos/wadida1.mp4",
+  },
+  {
+    title: "Wadida Restaurant – Kitchen Stories",
+    category: "Food Content",
+    desc: "Behind-the-scenes kitchen moments and fresh ingredients presented in a cinematic restaurant campaign.",
+    src: "/videos/wadida2.mp4",
+  },
+  {
+    title: "Wadida Restaurant – Dining Experience",
+    category: "Hospitality",
+    desc: "Lifestyle-focused video campaign showing the full dining journey at Wadida Restaurant.",
+    src: "/videos/wadida3.mp4",
+  },
+  {
+    title: "Wadida Restaurant – Social Media Reels",
     category: "Social Media",
-    desc: "A comprehensive social media campaign that boosted FOGG's brand awareness by 300% across Egypt, featuring creative Arabic content and influencer partnerships.",
-    color: "from-primary via-accent to-teal-light",
-  },
-  {
-    title: "CELENES Skincare Launch",
-    category: "E-Marketing",
-    desc: "Full digital launch strategy for CELENES skincare line, including social media management, influencer campaigns, and e-commerce optimization.",
-    color: "from-accent via-teal-light to-primary",
-  },
-  {
-    title: "Easy Gym Brand Revamp",
-    category: "Web Development",
-    desc: "Complete website redesign and digital marketing overhaul for Easy Gym, resulting in 200% increase in online memberships.",
-    color: "from-teal-light via-primary to-accent",
-  },
-  {
-    title: "Home Tech Appliances",
-    category: "Campaign Management",
-    desc: "Multi-platform advertising campaign for Home Tech appliances featuring product showcases and targeted Arabic-language ad content.",
-    color: "from-primary via-teal-light to-accent",
-  },
-  {
-    title: "Trust Horse Racing Events",
-    category: "Outdoor Events",
-    desc: "Event planning and digital coverage for Trust horse racing events, combining outdoor activations with live social media engagement.",
-    color: "from-accent via-primary to-teal-light",
-  },
-  {
-    title: "Queen Beauty Influencer Campaign",
-    category: "Influencer Marketing",
-    desc: "Strategic influencer marketing program connecting Queen Beauty with top beauty influencers across the MENA region.",
-    color: "from-teal-light via-accent to-primary",
+    desc: "Short-form engaging food reels designed to attract customers and boost restaurant visibility.",
+    src: "/videos/wadida4.mp4",
   },
 ];
-const WorksVd = () => (
-  <section className="relative">
-    <div className="bg-muted py-20">
-      <div className="max-w-7xl mx-auto px-4">
+
+const WorksVd = () => {
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  return (
+    <section className="relative bg-muted py-20">
+      <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-14">
           <span className="text-sm font-semibold tracking-widest uppercase text-primary">
             Video Showcase
           </span>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
+          <h2 className="text-3xl md:text-4xl font-bold mt-3">
             Campaigns In Action
           </h2>
-
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Watch how we bring brands to life through creative digital campaigns
             and storytelling.
           </p>
         </div>
 
+        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((video, i) => (
             <div
-              className="
-                group rounded-2xl overflow-hidden
-                bg-card border border-border
-                hover:border-primary/30
-                transition-all duration-500
-                hover:-translate-y-1
-                hover:shadow-2xl hover:shadow-primary/10
-              "
+              key={i}
+              className="group rounded-2xl overflow-hidden bg-card border border-border
+              hover:border-primary/30 transition-all duration-500
+              hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
             >
               {/* Video Preview */}
               <div
-                className={`
-                  relative aspect-video
-                  bg-gradient-to-br ${video.color}
-                  flex items-center justify-center
-                  cursor-pointer overflow-hidden
-                `}
+                onClick={() => setActiveVideo(video)}
+                className="relative aspect-video cursor-pointer overflow-hidden"
               >
-                {/* subtle animated radial highlight */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent_60%)]" />
-                </div>
+                {/* Video as Preview */}
+                <video
+                  src={video.src}
+                  muted
+                  playsInline
+                  autoPlay
+                  onLoadedMetadata={(e) => {
+                    const v = e.target;
+                    v.currentTime = 1; // بداية الجزء
+                    v.playbackRate = 0.7; // السرعة (أبطأ)
+                  }}
+                  onTimeUpdate={(e) => {
+                    const v = e.target;
+                    if (v.currentTime > 5) v.currentTime = 1;
+                  }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
 
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+
+                {/* Play Button */}
                 <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="
-                    relative z-10 w-16 h-16 rounded-full
-                    bg-primary-foreground/20 backdrop-blur
-                    flex items-center justify-center
-                    border border-primary-foreground/20
-                    shadow-lg
-                  "
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative z-7 w-16 h-16 rounded-full
+                  bg-white/20 backdrop-blur
+                  flex items-center justify-center
+                  border border-white/20 mx-auto mt-[20%]"
                 >
                   <Play
                     size={26}
-                    className="text-primary-foreground ml-1"
+                    className="text-white ml-1"
                     fill="currentColor"
                   />
                 </motion.div>
 
+                {/* Category */}
                 <span
-                  className="
-                    absolute top-4 left-4
-                    px-3 py-1 rounded-full
-                    bg-primary-foreground/10 backdrop-blur
-                    text-primary-foreground text-xs font-medium
-                    border border-primary-foreground/10
-                  "
+                  className="absolute top-4 left-4 px-3 py-1 rounded-full
+                bg-black/40 backdrop-blur
+                text-white text-xs font-medium"
                 >
                   {video.category}
                 </span>
@@ -117,24 +124,63 @@ const WorksVd = () => (
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
                   {video.title}
                 </h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                <p className="text-muted-foreground text-sm line-clamp-2">
                   {video.desc}
                 </p>
 
-                <button className="mt-4 inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2 transition-all duration-300">
-                  Watch Now <ArrowRight size={14} />
+                <button
+                  onClick={() => setActiveVideo(video)}
+                  className="mt-4 inline-flex items-center gap-1.5
+                  text-primary text-sm font-semibold hover:gap-2 transition-all"
+                >
+                  Watch Video <ArrowRight size={14} />
                 </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+
+      {/* Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur
+            flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.85, y: 30 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.85, y: 30 }}
+              className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden"
+            >
+              <video
+                src={activeVideo.src}
+                controls
+                autoPlay
+                className="w-full h-full object-cover"
+              />
+
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 w-10 h-10
+                rounded-full bg-black/60 text-white
+                flex items-center justify-center hover:bg-black"
+              >
+                <X size={20} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
 
 export default WorksVd;
