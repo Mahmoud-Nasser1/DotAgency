@@ -74,7 +74,7 @@ export default function ContactUS() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-lg border bg-card outline-none"
+                    className="w-full px-4 py-3 rounded-lg border bg-card outline-none focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
                   />
                 </div>
 
@@ -88,7 +88,7 @@ export default function ContactUS() {
                       setForm({ ...form, email: e.target.value })
                     }
                     placeholder="your.email@example.com"
-                    className="w-full px-4 py-3 rounded-lg border bg-card outline-none"
+                    className="w-full px-4 py-3 rounded-lg border bg-card outline-none focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
                   />
                 </div>
 
@@ -102,7 +102,7 @@ export default function ContactUS() {
                       setForm({ ...form, message: e.target.value })
                     }
                     placeholder="Tell us about your project..."
-                    className="w-full px-4 py-3 rounded-lg border bg-card resize-none outline-none"
+                    className="w-full px-4 py-3 rounded-lg border bg-card resize-none outline-none focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
                   />
                 </div>
 

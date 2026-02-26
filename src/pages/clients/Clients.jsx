@@ -1,42 +1,40 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import HeroSection from "../../components/heroSection/HeroSection";
+import { fadeUp } from "../../components/animation/FadeUp ";
 
 /* ✅ Images from /public/ourclient */
 const clients = [
-  { name: "FOGG", category: "Perfumes", image: "/ourclient/fogg.jpg" },
-  { name: "CELENES", category: "Skincare", image: "/ourclient/celenes.jpg" },
-  { name: "Dizurde", category: "Jewelry", image: "/ourclient/dizurde.jpg" },
-  {
-    name: "Trust Academy",
-    category: "Education",
-    image: "/ourclient/trust-academy.jpg",
-  },
+  { name: "FOGG", category: "Perfumes", image: "/ourclient/FOG.jpeg" },
+  { name: "Dizurde", category: "Jewelry", image: "/ourclient/Dizurde.jpeg" },
+
   {
     name: "Active Man",
     category: "Fitness",
-    image: "/ourclient/activeman.jpg",
-  },
-  {
-    name: "Home Tech",
-    category: "Appliances",
-    image: "/ourclient/hometech.jpg",
+    image: "/ourclient/MAN.jpeg",
   },
   {
     name: "Barbie Beauty",
     category: "Beauty",
-    image: "/ourclient/barbie-beauty.jpg",
+    image: "/ourclient/BARBIE.jpeg",
   },
   {
     name: "Car Zone",
     category: "Automotive",
-    image: "/ourclient/carzone.jpg",
+    image: "/ourclient/CARZONE.jpeg",
   },
   {
     name: "Wadida Cafe",
     category: "Food & Beverage",
-    image: "/ourclient/wadida-cafe.jpg",
+    image: "/ourclient/WADIDA.jpeg",
   },
+  { name: "YAS", category: "Advertising", image: "/ourclient/YAS.jpeg" },
+  {
+    name: "DecoHub",
+    category: "Decor",
+    image: "/ourclient/DECOHUB.jpeg",
+  },
+  { name: "ElamidCars", category: "Technology", image: "/ourclient/CAR.jpeg" },
 ];
 
 const Clients = () => {
@@ -71,10 +69,11 @@ const Clients = () => {
             {clients.map((client, i) => (
               <motion.div
                 key={client.name}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+                initial="hidden"
+                whileInView="visible"
+                custom={i}
+                viewport={{ once: true }}
+                variants={fadeUp}
               >
                 {/* CARD */}
                 <div className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
