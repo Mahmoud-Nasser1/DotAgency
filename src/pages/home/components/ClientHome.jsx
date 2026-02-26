@@ -5,23 +5,36 @@ import WavyDivider from "../../../components/animation/WavyDivider";
 import { fadeUp } from "../../../components/animation/FadeUp ";
 
 const clients = [
-  { name: "FOGG", category: "Perfumes", image: "/fogg.jpg" },
-  { name: "Celenes", category: "Skincare", image: "/celenes.jpg" },
-  { name: "Dizurde", category: "Jewelry", image: "/dizurde.jpg" },
-  { name: "Trust Academy", category: "Education", image: "/trust-academy.jpg" },
-  { name: "Active Man", category: "Fitness", image: "/activeman.jpg" },
-  { name: "Home Tech", category: "Appliances", image: "/hometech.jpg" },
+  { name: "FOGG", category: "Perfumes", image: "/ourclient/FOG.jpeg" },
+  { name: "Dizurde", category: "Jewelry", image: "/ourclient/Dizurde.jpeg" },
+
   {
-    name: "Barbie Salon",
-    category: "Beauty",
-    image: "/barbie-beauty.jpg",
+    name: "Active Man",
+    category: "Fitness",
+    image: "/ourclient/MAN.jpeg",
   },
-  { name: "Car Zone", category: "Automotive", image: "/carzone.jpg" },
+  {
+    name: "Barbie Beauty",
+    category: "Beauty",
+    image: "/ourclient/BARBIE.jpeg",
+  },
+  {
+    name: "Car Zone",
+    category: "Automotive",
+    image: "/ourclient/CARZONE.jpeg",
+  },
   {
     name: "Wadida Cafe",
     category: "Food & Beverage",
-    image: "/wadida-cafe.jpg",
+    image: "/ourclient/WADIDA.jpeg",
   },
+  { name: "YAS", category: "Advertising", image: "/ourclient/YAS.jpeg" },
+  {
+    name: "DecoHub",
+    category: "Decor",
+    image: "/ourclient/DECOHUB.jpeg",
+  },
+  { name: "ElamidCars", category: "Technology", image: "/ourclient/CAR.jpeg" },
 ];
 
 const ClientHome = () => {
@@ -34,7 +47,7 @@ const ClientHome = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4"
         >
-            Our Clients
+          Our Clients
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
